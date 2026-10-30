@@ -1,0 +1,134 @@
+html, body, #app { height: 100%; margin: 0; }
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #faf9f4;
+  color: #22272e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: #b7ecd4; }
+
+/* ================= 设计令牌（轻快纸感 + 糖果色） ================= */
+:root {
+  --paper: #faf9f4;        /* 米白画布 */
+  --card: #ffffff;
+  --ink: #22272e;          /* 墨色正文 */
+  --ink-2: #6f7680;        /* 次级文字 */
+  --ink-3: #a8adb6;        /* 弱化文字 */
+  --line: #edebe0;         /* 描边 */
+
+  --mint: #10b981;         /* 主色·鲜绿 */
+  --mint-deep: #059669;
+  --mint-soft: #e5f7ef;    /* 绿·浅色块 */
+  --sky: #3b9fe8;          /* 天蓝 */
+  --sky-soft: #e8f3fc;
+  --apricot: #f2a33c;      /* 杏橙 */
+  --apricot-soft: #fdf1dd;
+  --rose: #ef6461;         /* 柔粉/红 */
+  --rose-soft: #fcebe9;
+
+  --radius-s: 10px;
+  --radius-m: 14px;
+  --radius-l: 20px;
+  --shadow-s: 0 2px 8px rgba(34, 39, 46, .05);
+  --shadow-m: 0 10px 30px rgba(34, 39, 46, .08);
+  --shadow-l: 0 24px 60px rgba(34, 39, 46, .10);
+}
+
+/* ================= Element Plus 主题覆写 ================= */
+:root {
+  --el-color-primary: #10b981;
+  --el-color-primary-light-3: #4dcb9f;
+  --el-color-primary-light-5: #83dcc0;
+  --el-color-primary-light-7: #bbead9;
+  --el-color-primary-light-8: #d5f2e6;
+  --el-color-primary-light-9: #e5f7ef;
+  --el-color-primary-dark-2: #059669;
+  --el-color-success: #10b981;
+  --el-color-warning: #f2a33c;
+  --el-color-danger: #ef6461;
+  --el-color-error: #ef6461;
+  --el-color-info: #3b9fe8;
+  --el-border-radius-base: 10px;
+  --el-border-radius-small: 8px;
+  --el-border-color: #e6e3d8;
+  --el-border-color-light: #edebe0;
+  --el-border-color-lighter: #f1efe6;
+  --el-text-color-primary: #22272e;
+  --el-text-color-regular: #4b5563;
+  --el-text-color-secondary: #8a909a;
+  --el-fill-color-light: #f5f4ec;
+}
+
+.el-button { border-radius: 10px; font-weight: 500; }
+.el-button--primary { background: var(--mint); border-color: var(--mint); }
+.el-button--primary:hover { background: var(--mint-deep); border-color: var(--mint-deep); }
+
+.el-input__wrapper { border-radius: 10px; }
+.el-textarea__inner { border-radius: 10px; }
+
+.el-dialog {
+  border-radius: 20px;
+  box-shadow: var(--shadow-l);
+}
+.el-overlay { backdrop-filter: blur(2px); background: rgba(34, 39, 46, .32); }
+
+.el-popper.is-light {
+  border-radius: 14px;
+  border-color: var(--line);
+  box-shadow: var(--shadow-m);
+}
+.el-select-dropdown__item.is-selected { color: var(--mint-deep); font-weight: 600; }
+.el-select-dropdown__item.is-hovering { background: var(--mint-soft); }
+
+.el-message { border-radius: 12px; box-shadow: var(--shadow-m); border-color: var(--line); }
+
+.el-tabs__active-bar { background: var(--mint); }
+.el-tabs__item.is-active { color: var(--mint-deep); }
+.el-tabs__item:hover { color: var(--mint); }
+
+.el-dropdown-menu { border-radius: 12px; padding: 6px; }
+.el-dropdown-menu__item { border-radius: 8px; }
+.el-dropdown-menu__item:not(.is-disabled):hover { background: var(--mint-soft); color: var(--mint-deep); }
+
+/* 滚动条美化 */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #dcd9cc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #c2bfae; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 键盘焦点可见性（无障碍） */
+:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.el-button:focus:not(:focus-visible),
+button:focus:not(:focus-visible) { outline: none; }
+
+/* Element Plus 弹窗整体质感 */
+.el-dialog {
+  border-radius: 20px !important;
+  box-shadow: 0 24px 64px rgba(34, 39, 46, .18) !important;
+}
+.el-overlay { backdrop-filter: blur(3px); background-color: rgba(34, 39, 46, .35) !important; }
+
+/* ElMessage 圆角轻快化 */
+.el-message {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(34, 39, 46, .14) !important;
+  border: 1.5px solid var(--line) !important;
+}
+
+/* 全局动效：尊重减少动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
